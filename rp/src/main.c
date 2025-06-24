@@ -11,6 +11,7 @@
 #include "debug.h"
 #include "emul.h"
 #include "gconfig.h"
+#include "hardware/clocks.h"  // ← this is the one that declares set_sys_clock_khz()
 #include "reset.h"
 
 // This is the main.c file for the app or microfirmware. It is the entry point

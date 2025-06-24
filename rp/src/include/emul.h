@@ -16,28 +16,13 @@
 #include "aconfig.h"
 #include "constants.h"
 #include "debug.h"
-#include "download.h"
-#include "ff.h"
-#include "httpc/httpc.h"
 #include "memfunc.h"
-#include "network.h"
 #include "pico/stdlib.h"
+#include "reset.h"
 #include "romemul.h"
-#include "sdcard.h"
 #include "select.h"
-#include "term.h"
 
-#define WIFI_SCAN_TIME_MS (5 * 1000)
-#define DOWNLOAD_START_MS (3 * 1000)
-#define DOWNLOAD_DAY_MS (86400 * 1000)
 #define SLEEP_LOOP_MS 100
-
-enum {
-  APP_DIRECT = 0,       // Emulation
-  APP_MODE_SETUP = 255  // Setup
-};
-
-#define APP_MODE_SETUP_STR "255"  // App mode setup string
 
 /**
  * @brief

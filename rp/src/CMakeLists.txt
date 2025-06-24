@@ -40,13 +40,6 @@ else()
     message(FATAL_ERROR "Unknown BOARD_TYPE: ${BOARD_TYPE}")
 endif()
 
-# Add the env variable FATFS_SDK_PATH if it does not exist
-if(NOT DEFINED ENV{FATFS_SDK_PATH})
-    set(ENV{FATFS_SDK_PATH} ../../fatfs-sdk)
-endif()
-# Show the value
-message("FATFS_SDK_PATH: $ENV{FATFS_SDK_PATH}")
-
 # Add the env variable PICO_SDK_PATH if it does not exist
 if(NOT DEFINED ENV{PICO_SDK_PATH})
     set(ENV{PICO_SDK_PATH} ../../pico-sdk)
@@ -73,15 +66,6 @@ pico_sdk_init()
 
 add_subdirectory(settings)
 
-# Add u8g2 library
-add_subdirectory(u8g2)
-
-# Add HTTP client library
-add_subdirectory(httpc)
-
-# Tell CMake where to find other source code
-add_subdirectory($ENV{FATFS_SDK_PATH}/src build)
-  
 # Tell CMake where to find the executable source file
 add_executable(${PROJECT_NAME} 
         main.c
@@ -92,18 +76,11 @@ pico_generate_pio_header(${PROJECT_NAME} ${CMAKE_CURRENT_LIST_DIR}/romemul.pio)
 target_sources(${PROJECT_NAME} PRIVATE
         aconfig.c
         blink.c
-        display.c
-        display_term.c
-        download.c
         emul.c
         gconfig.c
-        hw_config.c
-        network.c
         reset.c
         romemul.c
-        sdcard.c
         select.c
-        term.c
         settings/settings.c)
 
 # Create map/bin/hex/uf2 files
@@ -113,12 +90,9 @@ pico_add_extra_outputs(${PROJECT_NAME})
 target_link_libraries(${PROJECT_NAME} PRIVATE
     ${LINK_LIBRARIES}        # External or additional libraries passed as variables
     hardware_flash           # Flash memory access
-    no-OS-FatFS-SD-SDIO-SPI-RPi-Pico                # FATFS library   
     pico_stdlib              # Core functionality
     pico_multicore          # Multicore support
-    httpc                    # HTTP client
     settings                 # Custom settings library
-    u8g2                     # for display
 )
 
 # Conditionally link the CYW43 architecture library if supported
@@ -182,7 +156,7 @@ if(NOT RELEASE_DATE)
 endif()
 
 if (NOT _DEBUG)
-        set(_DEBUG 1)
+        set(_DEBUG 0)
 endif()
 
 # Debug outputs

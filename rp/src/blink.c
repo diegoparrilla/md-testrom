@@ -1,5 +1,27 @@
 #include "blink.h"
 
+#ifdef CYW43_WL_GPIO_LED_PIN
+static bool cyw43Initialized = false;
+static int network_initChipOnly() {
+  if (cyw43Initialized) {
+    DPRINTF("WiFi already initialized\n");
+    return 0;
+  }
+  // This flag is important, because calling a cyw43 function before the
+  // initialization will cause a crash
+  cyw43Initialized = true;
+  DPRINTF("CYW43 Logging level: %d\n", CYW43_VERBOSE_DEBUG);
+  int res;
+  DPRINTF("Initialization CYW43 chip ONLY...\n");
+
+  if ((res = cyw43_arch_init())) {
+    DPRINTF("Failed to initialize CYW43: %d\n", res);
+    return -1;
+  }
+  return 0;
+}
+#endif
+
 static MorseCode morseAlphabet[] = {
     {'A', ".-"},    {'B', "-..."},  {'C', "-.-."},  {'D', "-.."},
     {'E', "."},     {'F', "..-."},  {'G', "--."},   {'H', "...."},

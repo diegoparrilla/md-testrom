@@ -48,7 +48,7 @@ def binary_to_c_array(input_source, output_file, array_name, endian_format="litt
 
     # Remove the trailing comma and add closing brace
     content = content.rstrip(",\n") + "\n};\n"
-    content += f"uint16_t {array_name}_length = sizeof({array_name}) / sizeof({array_name}[0]);\n\n"
+    content += f"uint32_t {array_name}_length = sizeof({array_name}) / sizeof({array_name}[0]);\n\n"
 
     # Write to output .h file
     with open(output_file, "w") as f:

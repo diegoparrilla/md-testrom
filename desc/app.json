@@ -1,16 +1,18 @@
 {
   "uuid": "<APP_UUID>",
-  "name": "APP DEV Template",
-  "description": "Microfirmware Application Template for Atari ST",
+  "name": "Multidevice Test",
+  "description": "This ROM combined with a test tool running in the computer will test the quality of the connection between the computer and the cartridge. <a target='_blank' rel='noopener noreferrer' href='https://docs.sidecartridge.com/sidecartridge-multidevice/microfirmwares/multidevice-test/'>Learn how</a>",
   "image": "https://placehold.co/256x256/png",
   "tags": [
-    "Sample",
+    "Troubleshooting"
   ],
   "devices": [
-    "Atari ST",
-    "Atari STE",
-    "Atari MegaST",
-    "Atari MegaSTE"
+    "ST",
+    "STE",
+    "MegaST",
+    "MegaSTE",
+    "TT",
+    "Falcon"
   ],
   "binary": "https://atarist.sidecartridge.com/<APP_UUID>-<APP_VERSION>.uf2",
   "md5": "<BINARY_MD5_HASH>",

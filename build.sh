@@ -14,6 +14,7 @@ fi
 echo "Copy version.txt to each project"
 cp version.txt rp/
 cp version.txt target/
+cp version.txt app/atarist/
 
 # Display the version information
 export VERSION=$(cat version.txt)
@@ -88,6 +89,8 @@ else
     sed -i "s/<BINARY_MD5_HASH>/$(cat dist/rp.uf2.md5sum | cut -d ' ' -f 1)/g" dist/app.json
     sed -i "s/<APP_VERSION>/$VERSION/g" dist/app.json
 fi
+
+cp dist/$APP_UUID_KEY.uf2 dist/$APP_UUID_KEY-$VERSION.uf2
 
 # Show the content of the $APP_UUID_KEY.json file
 echo "Content of the $APP_UUID_KEY.json file:"
