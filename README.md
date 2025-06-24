@@ -10,15 +10,15 @@ For those new to the Sidecart ROM Emulator, we recommend visiting the official [
 
 ## Getting Started
 
-### Atari ST / MegaST / STE / MegaSTE / TT / Falcon 
+### Atari ST / MegaST / STE / MegaSTE / TT / Falcon 
 
-To get started with the testing process, you'll need two main files, both of which can be located in the [Release page](https://github.com/sidecartridge/atarist-sidecart-test-rom/releases) of this repository:
+To get started with the testing process, you'll need two main files, both of which can be located in the [Release page](https://github.com/sidecartridge/md-testrom/releases/tag/v0.0.3) of this repository:
 
 - **`TESTSCRT.TOS`**: The primary test program, which should be transferred to your Atari ST machine.
   
 - **`TESTROM.BIN`**: A binary file containing randomized data across two ROM banks. This file needs to be copied to your Atari ST computer and should be placed in the same directory as `TESTSCRT.TOS`. It is essential for the test program to function correctly.
 
-### SidecarTridge Multidevice Setup with a functional computer
+### SidecarTridge Multidevice Setup with a functional computer
 
 This version of the test suite is designed to run on the SidecarTridge Multidevice with the new firmware v2.0 or later. Once you are in the management web interface of the SidecarTridge Multidevice also called the `Booster Configurator`, you have to find the `Multidevice Test` microfirmware, download it, and launch it. This microfirmware is designed to work with the programs located in the Atari computer.
 
