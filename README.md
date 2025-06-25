@@ -60,6 +60,11 @@ The program will perform the following tests. It will take several minutes:
 
 A healthy SidecarTridge Multidevice should pass all tests without any errors. If any test fails, it indicates a potential issue with the device, its connection, or the computer itself.
 
+## Return to the Booster Configurator
+
+To return to the Booster Configurator, press the **`SELECT`** button on your SidecarTridge Multi-device. This will exit the test program and bring you back to the main menu of the Booster Configurator.
+
+
 ## Requirements for developers
 
 - An Atari ST/MegaST/STE/MegaSTE computer. There are several emulators available for Windows, Linux, and Mac. I recommend [Hatari](http://hatari.tuxfamily.org/), and I'm also a big fan of [MiSTer](https://misterfpga.org/). It should work on any Atari STe with at least 1MB of RAM.
